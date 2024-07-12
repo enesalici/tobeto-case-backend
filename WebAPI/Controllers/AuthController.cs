@@ -1,8 +1,6 @@
-﻿using Application.Features.Auth.Commands.Register;
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Features.Auth.Commands.Login;
+using Application.Features.Auth.Commands.Register;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Controllers;
 
 namespace WebAPI.Controllers
 {
@@ -17,11 +15,11 @@ namespace WebAPI.Controllers
             return Created();
         }
 
-        //[HttpPost("Login")]
-        //public async Task<IActionResult> Login([FromBody] LoginCommand loginCommand)
-        //{
-        //    var response = await _mediator.Send(loginCommand);
-        //    return Ok(response);
-        //}
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginCommand loginCommand)
+        {
+            var response = await _mediator.Send(loginCommand);
+            return Ok(response);
+        }
     }
 }

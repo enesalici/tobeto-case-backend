@@ -6,6 +6,6 @@ namespace Core.Utilities.JWT
 {
     public interface ITokenHelper
     {
-        AccessToken CreateToken(BaseEntity user);
+        AccessToken CreateToken(BaseEntity<Guid> user);
     }
 }

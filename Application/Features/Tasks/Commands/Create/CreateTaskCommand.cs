@@ -1,5 +1,6 @@
 ﻿using Application.Repos;
 using AutoMapper;
+using Core.Pipelines.Authorization;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -10,15 +11,12 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Tasks.Commands.Create;
 
-public class CreateTaskCommand : IRequest<CreateTaskResponse>
+public class CreateTaskCommand : IRequest<CreateTaskResponse> 
 {
     public Guid UserId { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    
-    
 }
-
 public class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, CreateTaskResponse>
 {
     private readonly ITaskRepository _taskRepository;

@@ -14,7 +14,7 @@ TokenOptions? tokenOptions = builder.Configuration.GetSection("TokenOptions").Ge
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceService(builder.Configuration);
 builder.Services.AddCoreServices(tokenOptions);
